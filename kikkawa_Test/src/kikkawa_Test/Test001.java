@@ -7,6 +7,8 @@ public class Test001 {
 		System.out.println(123456789);
 		System.out.println("kakikukeko");
 		System.out.println("aiueo");
+		System.out.println("kakikukeko");
+		System.out.println("aiueo");
 	}
 
 }
