@@ -7,6 +7,8 @@ public class Test002 {
 		System.out.println("marumaru");
 		System.out.println("marumaru");
 		System.out.println("marumaru");
+		System.out.println("marumaru");
+		System.out.println("marumaru");
 	}
 
 }
