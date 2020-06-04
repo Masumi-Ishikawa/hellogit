@@ -3,7 +3,7 @@ package helloSample;
 public class Hello {
 
 	public static void main(String[] args) {
-		System.out.print("こんばんわ");
+		System.out.print("おはよう");
 	}
 
 }
