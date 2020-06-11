@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ユーザー情報編集</title>
+
+
+
+</head>
+<body>
+<h3>ユーザー情報編集</h3>
+
+<form method = "post" action = "/user/edit" th:object = "${userForm}">
+
+	<span th:text="${notinput}"></span>
+	<table>
+		<tr>
+			<td>ユーザーID</td>
+			<td><input type = "text" name = "userid" th:value = "*{userid}"></td>
+		</tr>
+
+		<tr>
+			<td>ユーザー名</td>
+			<td><input type = "text" name = "username" th:value = "*{username}"></td>
+		</tr>
+
+		<tr>
+			<td>パスワード</td>
+			<td>
+				<input type = "text" name = "password" id = "password" th:value = "*{password}">
+				<input type="button" value="ランダム生成" onclick="randomPass(10);">
+			</td>
+		</tr>
+
+		<tr>
+			<td></td>
+			<td>
+				<input type = "text" name = "password" id = "password">
+			</td>
+		</tr>
+
+		<tr>
+			<td>契約区分</td>
+			<td>
+				<select name="agreementno" th:value = "*{agreementno}">
+					<option>一般社員</option>
+					<option>派遣</option>
+					<option>課長</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+
+	<input type = "submit" value="戻る" formaction = "/menuadmin">
+	<input type = "submit" value = "登録">
+
+</form>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+	function randomPass(len) {
+		var l  = len;
+		var c  = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ012345679";
+		var cl = c.length;
+		var r  = "";
+		for (var i = 0; i < l; i++) {
+			r += c[Math.floor(Math.random() * cl)];
+		}
+		document.getElementById("password").value = r;
+    }
+</script>
+</body>
+</html>

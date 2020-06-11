@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table border="1">
+		<tr>
+			<th>日付</th>
+			<th>曜日</th>
+			<th>開始時刻(出社)</th>
+			<th>終了時刻(退社)</th>
+			<th>作業時間</th>
+			<th>届出内容</th>
+			<th>残業時間</th>
+			<th>深夜残業勤務</th>
+			<th>遅刻時間</th>
+			<th>早退時間</th>
+			<th>備考</th>
+			<th>編集</th>
+		</tr>
+		<tr th:each="li:${list}">
+		<form action="/job/regist" method="get" th:object="${jobTimeForm}">
+			<input type="hidden" th:value="${li.date}" name="entrydate">
+			<input type="hidden" th:value="${li.starttime}" name="s_time">
+			<input type="hidden" th:value="${li.endtime}" name="e_time">
+			<input type="hidden" th:value="${li.state}" name="state">
+			<input type="hidden" th:value="${li.note}" name="note">
+			<td th:text="${li.day}"></td>
+			<td th:text="${li.week}"></td>
+			<td th:text="${li.starttime}"></td>
+			<td th:text="${li.endtime}"></td>
+			<td th:text="${li.worktime}"></td>
+			<td th:text="${li.state}"></td>
+			<td th:text="${li.overtime}"></td>
+			<td th:text="${li.nighttime}"></td>
+			<td th:text="${li.tardytime}"></td>
+			<td th:text="${li.earlytime}"></td>
+			<td th:text="${li.note}"></td>
+			<td>
+			<input type="submit" value="編集">
+			</td>
+			</form>
+		</tr>
+	</table>
+</body>
+</html>

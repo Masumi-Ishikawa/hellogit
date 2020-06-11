@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+<form action="/job/regist" method="post" th:object="${jobTimeForm}">
+<p>日付<input type="text" name="entrydate" th:value="*{entrydate}" readonly></p>
+<select name="state">
+	<option th:each="item:*{state_ary}" th:value="${item}" th:selected="${item} == *{state}" th:text="${item}"></option>
+</select>
+<p>出勤時間
+	<select name="s_hour">
+		<option th:each="item:*{hour_ary}" th:value="${item}" th:selected="${item} == ${s_hour}" th:text="${item}"></option>
+	</select>:
+	<select name="s_minute">
+		<option th:each="item:*{minute_ary}" th:value="${item}" th:selected="${item} == ${s_minute}" th:text="${item}"></option>
+	</select>
+</p>
+<p>退勤時間
+	<select name="e_hour">
+		<option th:each="item:*{hour_ary}" th:value="${item}" th:selected="${item} == ${e_hour}" th:text="${item}"></option>
+	</select>:
+	<select name="e_minute">
+		<option th:each="item:*{minute_ary}" th:value="${item}" th:selected="${item} == ${e_minute}" th:text="${item}"></option>
+	</select>
+</p>
+備考<textarea name="note" cols="40" rows="8" th:text="*{note}"></textarea></br>
+<input type="submit" value="登録">&nbsp;<button type="button" id="back">戻る</button>
+</form>
+<script>
+$('#back').click(function(){
+	var form = $('form');
+	form.attr('action', '/job/list');
+	form.attr('method', 'get');
+	form.submit();
+});
+</script>
+</body>
+</html>
