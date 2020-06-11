@@ -1,4 +1,4 @@
-package kikkawa_Test;
+package test;
 
 public class Test002 {
 
