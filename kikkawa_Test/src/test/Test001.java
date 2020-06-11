@@ -8,5 +8,4 @@ public class Test001 {
 		System.out.println(999999999);
 		System.out.println(999999999);
 	}
-
 }
