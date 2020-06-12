@@ -66,6 +66,8 @@ public class UserController {
 
 		userService.updateUser(userForm);
 		//attr.addFlashAttribute("userForm", userForm);
+		userService.updateUser(userForm);
+		//attr.addFlashAttribute("userForm", userForm);
 
 		return "redirect:/user/update";
 	}
